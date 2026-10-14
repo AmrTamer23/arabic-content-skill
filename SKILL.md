@@ -101,6 +101,8 @@ Then read your Arabic back as if you'd never seen the English. Fix anything that
 - uses a pattern from the "smells" list in `writing-rules.md`,
 - would not fit the UI element (long button, wrapped tab label),
 - mixes registers inside one screen,
+- uses the wrong tone for the situation (celebrating a routine action, blaming the user in an error, apologizing in an empty state),
+- leaves an icon-only button or image without an Arabic accessible label/alt text (when you're writing UI code),
 - uses a different term for a concept already used elsewhere in the project,
 - breaks a placeholder or plural.
 

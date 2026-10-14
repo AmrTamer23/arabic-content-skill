@@ -6,6 +6,8 @@
 3. Sentence patterns by string type
 4. Punctuation & typography
 5. Tone calibration
+6. Tone by situation (good news, neutral, bad news)
+7. Accessibility & inclusive language
 
 ---
 
@@ -75,11 +77,26 @@ Avoid pure literal versions of English puns; find an Arabic rhythm instead (or d
 `انتهت الجلسة. سجّل الدخول من جديد.`
 `تعذّر الاتصال بالإنترنت.` (`تعذّر` is the idiomatic "couldn't")
 
+**Form placeholders & help text** — a placeholder is a hint, not a label (the label stays visible above the field). Three useful shapes:
+- a direct question: `ما اسم المنتج؟`
+- a realistic example: `مثال: أحمد العتيبي`، `name@example.com`
+- a filter/sort cue: `ابحث بالاسم أو رقم الطلب`
+Help text under a field is the shortest version that removes doubt: `8 أحرف على الأقل` rather than a full sentence repeating the label. Never put critical instructions only in a placeholder — it disappears when the user starts typing.
+
 **Validation** — short, attached to the field: `هذا الحقل مطلوب`، `أدخل بريدًا إلكترونيًا صحيحًا`، `يجب أن تتكون كلمة المرور من 8 أحرف على الأقل`.
 
-**Empty states** — reassure + next step: `لا توجد طلبات بعد` + `ابدأ التسوق`.
+**Empty states** — treat them as the start of something, not a failure. Say what will appear here and offer the first action:
+- `ستظهر طلباتك هنا` + `ابدأ التسوق` (better than a bare `لا توجد طلبات`)
+- `لم تحفظ أي عنوان بعد` + `أضف عنوانًا`
+- Search with no results is different — it *is* a dead end, so help the user recover: `لا توجد نتائج لـ «{query}»` + `جرّب كلمة أخرى أو تصفّح الأقسام`.
+Never apologize in an empty state (`عذرًا، لا توجد…`) — nothing went wrong.
 
 **Confirmations / toasts** — very short: `تم الحفظ`، `تمت الإضافة إلى السلة`، `تم نسخ الرابط`.
+
+**Success screens** (not toasts — full screens or cards after a meaningful action) — confirm what happened in terms of the user's goal, then say what happens next:
+- `تم استلام طلبك. سنرسل لك إشعارًا عند خروجه للتوصيل.`
+- `أُرسلت الحوالة. ستصل إلى المستفيد خلال دقائق.` — only state timings the product actually guarantees (see "Don't add claims" in SKILL.md).
+- Add one next action when there is a natural one: `تتبّع الطلب`، `العودة إلى الرئيسية`.
 
 **Destructive confirmations** — question title + clear verbs on buttons (not "Yes/No"):
 title `حذف العنوان؟` body `لن تتمكن من استعادته.` buttons `حذف` / `إلغاء`.
@@ -108,3 +125,41 @@ title `حذف العنوان؟` body `لن تتمكن من استعادته.` bu
 | gov-fintech | Clear, respectful, reassuring, exact | Jokes, emoji, vague promises |
 | egyptian | Warm, witty, conversational | Dialect in legal/payment/error-critical text |
 | editorial | Sober, curious, confident, analytical | Hype, clichés, `تم`/`قام بـ`, italics |
+
+## 6. Tone by situation
+
+The brand voice stays fixed; the tone shifts with what just happened to the user. Decide which of three situations a string belongs to before writing it.
+
+| Situation | Examples | Do | Avoid |
+|---|---|---|---|
+| **Good news** — success, welcome, milestone | order placed, payment done, first login | Warm and brief; credit the user, not the product; point to the next step | Self-congratulation (`نجحنا في…`), over-celebration on routine actions, stacking `!` |
+| **Neutral** — information, instructions | form labels, settings, explanations | Direct and confident; tie the action to its benefit (`فعّل الإشعارات لتعرف موعد وصول طلبك`) | Hedging (`يمكنك إن أردت…`), commanding without a reason, piling on politeness |
+| **Bad news** — errors, failures, declines, cancellations | payment failed, session expired, item unavailable | Honest and calm: what happened → what to do now; one apology at most, only when the product is at fault | Blaming the user (`أدخلت رقمًا خاطئًا`), vague errors (`حدث خطأ` alone), jokes, emoji, technical codes in the main message |
+
+Bad-news patterns:
+- Product's fault → brief apology + recovery: `عذرًا، تعذّر إتمام الدفع. حاول مرة أخرى أو اختر طريقة دفع أخرى.`
+- User input issue → no apology, no blame, describe the fix: `يتكون الرمز من 6 أرقام` rather than `الرمز الذي أدخلته خاطئ`.
+- External cause (bank declined, no network) → name the cause plainly, then the options: `رفض البنك العملية. تحقّق من بيانات البطاقة أو تواصل مع البنك.`
+
+## 7. Accessibility & inclusive language
+
+**Plain language** — everything in this guide already pushes toward it: short sentences, common words, one idea per sentence, the most important information first. This matters more in Arabic UI because many users read in their second-best script on small screens.
+
+**Disability language** — use person-first, respectful terms:
+
+| Use | Avoid |
+|---|---|
+| `ذوو الإعاقة` / `الأشخاص ذوو الإعاقة` (neutral, formal) | `المعاقون`، `العاجزون` |
+| `أصحاب الهمم` (UAE official term) / `ذوو الهمم` (common in Egypt) | — use only when the market or brand already does; `ذوو الإعاقة` is the safe default |
+| `مستخدمو قارئ الشاشة` | `المكفوفون` when you mean screen-reader users generally |
+| `يستخدم كرسيًا متحركًا` | `مُقعد`، `حبيس الكرسي` |
+
+**Alt text and accessible labels** — write them in Arabic, describe the purpose not the file:
+- Image alt: `صورة: غلاف كتاب «موسم الهجرة إلى الشمال»` not `image.jpg` or `صورة`.
+- Decorative images: empty alt (`alt=""`), not a description.
+- Icon-only buttons need an accessible label in Arabic: `aria-label="إغلاق"`، `aria-label="إضافة إلى المفضلة"` — the visible icon doesn't speak.
+- Don't repeat the role (`زر إغلاق`) — screen readers announce "button" already.
+- Links say where they go: `اعرف المزيد عن رسوم التحويل` beats a bare `اضغط هنا` when the link stands alone.
+
+**Don't encode meaning only in color or emoji** — `✓` or a green border needs text too (`تم الحفظ`).
+
