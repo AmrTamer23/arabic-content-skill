@@ -1,0 +1,29 @@
+{
+  "skill_name": "arabic-content",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "translate this en.json for our food delivery app to arabic, we're launching in riyadh next month: {\"auth\":{\"signIn\":\"Sign in\",\"signUp\":\"Create account\",\"otpSent\":\"We've sent a 4-digit code to {phone}\",\"otpInvalid\":\"That code didn't work. Please try again.\"},\"cart\":{\"title\":\"Your cart\",\"empty\":\"Your cart is empty\",\"items\":\"{count, plural, one {# item} other {# items}}\",\"checkout\":\"Proceed to checkout\",\"removeConfirm\":\"Are you sure you want to remove this item from your cart?\"},\"order\":{\"onTheWay\":\"Your order is on its way!\",\"delivered\":\"Delivered. Enjoy your meal!\"}}",
+      "expected_output": "ar.json with same keys, Saudi super-app style MSA, full 6-form Arabic plural, placeholders intact, no قم بـ / الخاص بك smells",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need the Arabic hero section + 3 feature blurbs for our Egyptian fintech app landing page. English: 'Send money in seconds. Instant transfers to any bank in Egypt, 24/7. Features: 1) Zero fees on your first 10 transfers 2) Bank-level security with biometric login 3) Split bills with friends'. Our brand voice is young and fun, Egyptian dialect is fine for marketing.",
+      "expected_output": "Egyptian-dialect headlines/blurbs with MSA for security claim, EGP formatting if any, natural not literal",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "we're adding arabic to our B2B SaaS dashboard (project management tool, customers in UAE + KSA). can you write arabic for these settings/error strings: 'Workspace settings', 'Invite members', 'Your session has expired. Please sign in again.', 'You don't have permission to access this project.', 'Changes saved', 'Delete workspace?', 'This action cannot be undone. All projects and files will be permanently deleted.', 'Upgrade to Pro', 'Storage: 4.2 GB of 10 GB used'",
+      "expected_output": "Big-tech style clean MSA, Pro kept as brand term, consistent terms, destructive dialog verbs",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "we run a saudi podcast + newsletter app. write the arabic newsletter intro for this week's issue and the episode description. issue covers: 1) why Riyadh cafés are replacing coworking spaces 2) a review of the new Dune film 3) a short note on Google's new AI search in Arabic. episode: 45 min conversation with a founder about bootstrapping a coffee roastery.",
+      "expected_output": "Thmanyah-style editorial MSA: نبدأ بـ… ثم ننتقل إلى… قبل أن نتوقف عند… teaser formula, «» around film title with original in (), قوقل with ق or Google per house rule, no تم/قام بـ, duration 45د",
+      "files": []
+    }
+  ]
+}
