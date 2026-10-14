@@ -5,7 +5,13 @@ A Claude Code skill for writing native-quality Arabic content for apps and websi
 ## Install
 
 ```bash
-git clone git@github.com:AmrTamer23/arabic-content-skill.git ~/.claude/skills/arabic-content
+npx skills add AmrTamer23/arabic-content-skill
+```
+
+Or manually:
+
+```bash
+git clone https://github.com/AmrTamer23/arabic-content-skill.git ~/.claude/skills/arabic-content
 ```
 
 Claude Code picks it up automatically in new sessions. Invoke explicitly with `/arabic-content`.
